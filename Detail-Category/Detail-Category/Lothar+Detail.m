@@ -10,12 +10,13 @@
 
 
 @implementation Lothar (Detail)
-- (UIViewController *)Detail_aViewControllerWithDocid:(NSString *)docid {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    if (docid) {
-        dict[@"docid"] = docid;
-    }
-    return [self performTarget:@"Detail" action:@"aViewController" params:[dict copy] shouldCacheTarget:YES];
+- (nullable UIViewController *)Detail_aViewControllerWithDocid:(nonnull NSString *)docid
+                                                       boardid:(nullable NSString *)boardid
+                                                    replyCount:(nullable NSNumber *)replyCount {
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:docid, @"docid",
+                          boardid ?: [NSNull null], @"boardid",
+                          replyCount ?: [NSNull null], @"replyCount", nil];
+    return [self performTarget:@"Detail" action:@"aViewController" params:dict shouldCacheTarget:YES];
 }
 
 @end

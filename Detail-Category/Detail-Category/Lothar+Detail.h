@@ -9,5 +9,7 @@
 #import <Lothar/Lothar.h>
 
 @interface Lothar (Detail)
-- (nullable UIViewController *)Detail_aViewControllerWithDocid:(nonnull NSString *)docid;
+- (nullable UIViewController *)Detail_aViewControllerWithDocid:(nonnull NSString *)docid
+                                                       boardid:(nullable NSString *)boardid
+                                                    replyCount:(nullable NSNumber *)replyCount;
 @end
